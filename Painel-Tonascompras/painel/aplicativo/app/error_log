@@ -1,0 +1,3 @@
+[26-May-2020 22:07:39 America/Fortaleza] PHP Warning:  array_combine() expects parameter 1 to be array, null given in /home1/walles47/Walldelivery/tonascompras/painel/aplicativo/app/bairros_frete.php on line 6
+[26-May-2020 22:07:43 America/Fortaleza] PHP Warning:  array_combine() expects parameter 1 to be array, null given in /home1/walles47/Walldelivery/tonascompras/painel/aplicativo/app/bairros_frete.php on line 6
+[26-May-2020 22:07:45 America/Fortaleza] PHP Warning:  array_combine() expects parameter 1 to be array, null given in /home1/walles47/Walldelivery/tonascompras/painel/aplicativo/app/bairros_frete.php on line 6

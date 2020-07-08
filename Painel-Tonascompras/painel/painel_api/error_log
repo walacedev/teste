@@ -1,0 +1,178 @@
+[30-Oct-2019 00:36:41 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php:27) in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php(53): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php on line 271
+[30-Oct-2019 00:37:06 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_entregador.php:47) in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_entregador.php(118): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php on line 271
+[30-Oct-2019 00:42:08 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php:27) in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php(53): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php on line 271
+[30-Oct-2019 20:39:18 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php:27) in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php(53): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php on line 271
+[30-Oct-2019 23:13:30 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php:27) in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php(53): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php on line 271
+[30-Oct-2019 23:13:51 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_entregador.php:47) in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_entregador.php(118): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php on line 271
+[30-Oct-2019 23:17:29 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php:27) in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php(53): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php on line 271
+[30-Oct-2019 23:17:35 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_entregador.php:47) in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_entregador.php(118): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php on line 271
+[30-Oct-2019 23:17:57 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php:27) in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php(53): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php on line 271
+[30-Oct-2019 23:18:54 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php:27) in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php(53): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php on line 271
+[30-Oct-2019 23:19:04 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_entregador.php:47) in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_entregador.php(118): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php on line 271
+[30-Oct-2019 23:19:06 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php:27) in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php(53): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php on line 271
+[30-Oct-2019 23:19:38 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php:27) in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php(53): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php on line 271
+[30-Oct-2019 23:19:42 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php:27) in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php(53): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php on line 271
+[30-Oct-2019 23:20:18 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php:26) in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php(52): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php on line 271
+[30-Oct-2019 23:20:56 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php:26) in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php(52): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php on line 271
+[30-Oct-2019 23:21:31 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php:26) in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php(52): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php on line 271
+[30-Oct-2019 23:21:32 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php:26) in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php(52): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php on line 271
+[30-Oct-2019 23:21:34 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php:26) in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php(52): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php on line 271
+[30-Oct-2019 23:21:35 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php:26) in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php(52): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php on line 271
+[30-Oct-2019 23:21:35 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php:26) in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php(52): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php on line 271
+[30-Oct-2019 23:21:46 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php:26) in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php(52): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php on line 271
+[30-Oct-2019 23:22:46 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php:45) in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php(52): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/pdf/fpdf.php on line 271
+[30-Oct-2019 23:23:11 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected '$pdf' (T_VARIABLE), expecting ';' in /home1/walles47/<?php echo $sistema_nome ?>/macburger_walldelivery/painel/painel_api/imprimir_cozinha.php on line 43
+[28-Jan-2020 19:41:18 America/Fortaleza] PHP Warning:  Invalid argument supplied for foreach() in /home1/walles47/Walldelivery/kbeca/painel/painel_api/imprimir_cozinha.php on line 25
+[28-Jan-2020 19:41:18 America/Fortaleza] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/Walldelivery/kbeca/painel/painel_api/imprimir_cozinha.php:25) in /home1/walles47/Walldelivery/kbeca/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/Walldelivery/kbeca/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/Walldelivery/kbeca/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/Walldelivery/kbeca/painel/painel_api/imprimir_cozinha.php(50): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/Walldelivery/kbeca/painel/pdf/fpdf.php on line 271
+[26-May-2020 19:03:26 America/Fortaleza] PHP Warning:  max(): Array must contain at least one element in /home1/walles47/Walldelivery/tonascompras/painel/painel_api/imprimir_cozinha.php on line 69
+[26-May-2020 19:03:26 America/Fortaleza] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at /home1/walles47/Walldelivery/tonascompras/painel/painel_api/imprimir_cozinha.php:69) in /home1/walles47/Walldelivery/tonascompras/painel/pdf/fpdf.php:271
+Stack trace:
+#0 /home1/walles47/Walldelivery/tonascompras/painel/pdf/fpdf.php(1053): FPDF->Error('Some data has a...')
+#1 /home1/walles47/Walldelivery/tonascompras/painel/pdf/fpdf.php(1000): FPDF->_checkoutput()
+#2 /home1/walles47/Walldelivery/tonascompras/painel/painel_api/imprimir_cozinha.php(95): FPDF->Output()
+#3 {main}
+  thrown in /home1/walles47/Walldelivery/tonascompras/painel/pdf/fpdf.php on line 271
