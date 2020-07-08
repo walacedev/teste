@@ -1,0 +1,189 @@
+<ion-header>
+  <ion-toolbar mode='ios'>
+    <ion-buttons slot="start">
+      <ion-buttons slot="start">
+        <a (click)="routerlink_api('/home')">
+          <h3><ion-icon style="color: white;" name="arrow-back"></ion-icon></h3>
+        </a>
+      </ion-buttons>
+    </ion-buttons>
+    <ion-title><b>Comprar</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+
+
+  <ion-card center text-center>
+    <ion-card-content>
+      <ion-thumbnail slot="start" style="margin: auto;">
+        <img [src]="img(restaurante.imagem)">
+      </ion-thumbnail>
+      <br>  
+      <ion-label>
+        <h2>{{ restaurante.nome }}</h2>    
+        <h3><font size='2px'>{{ get_categoria(restaurante.categoria) }}</font></h3>
+        <div *ngIf='carregar == false'>
+          <h3><b>{{ data }}</b></h3>
+          <br>
+        </div>
+  
+        <div *ngIf='carregar == true'>
+          <div class="ion-text-center">
+            <ion-spinner name="dots"></ion-spinner> 
+          </div>
+  
+        </div>
+
+      </ion-label>
+      <section>
+        <ion-button size="small" color="warning" (click)='cardapio_s()'>Categorias</ion-button>
+        <ion-button size="small" color="warning" (click)='avaliacoes_s()'>Avaliações</ion-button>
+        <ion-button size="small" color="warning" (click)='sobre_s()'>Sobre</ion-button>
+      </section>
+    </ion-card-content>
+  </ion-card>
+ 
+    
+  <ion-list *ngIf='cardapio == true'>
+    <div *ngFor="let car of menuarray">
+      <ion-item (click)="rout(car.id, car.nome);" >
+        
+            <p><b>{{ car.nome }}</b></p>
+            <br>
+            <ion-icon name="arrow-forward"  slot="end"></ion-icon>
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <ion-list *ngIf='carregar == true'>
+    <div>
+      <ion-item>
+        <ion-avatar slot="start" style="width: 60px; height: 60px;">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-avatar>
+        <ion-label>
+            <h2><b><ion-skeleton-text animated></ion-skeleton-text></b></h2>
+            <p><ion-skeleton-text animated></ion-skeleton-text></p>
+          </ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
+
+
+  <ion-card *ngIf='avalicoes == true'>
+   
+    <ion-card-header>
+      <div class="ion-text-center">
+      <p>Quantidade de avaliações ({{ quantidade }})</p>
+      </div>
+      <ion-list>
+        <ion-item>
+          <ion-label><p>Principal {{ media }}</p></ion-label>
+          <div *ngFor='let i of fakeArray(getnumber(media))'>
+            <ion-icon name="star" slot="end" color='warning'></ion-icon>
+          </div>
+        </ion-item>
+        <ion-item>
+          <ion-label><p>Qualidade {{ media_qualidade }}</p></ion-label>
+          <div *ngFor='let i of fakeArray(getnumber(media_qualidade))'>
+            <ion-icon name="star" slot="end" color='warning'></ion-icon>
+          </div>
+        </ion-item> 
+        <ion-item>
+          <ion-label><p>Entrega {{ media_entrega }}</p></ion-label>
+          <div *ngFor='let i of fakeArray(getnumber(media_entrega))'>
+            <ion-icon name="star" slot="end" color='warning'></ion-icon>
+          </div>
+        </ion-item>
+      </ion-list>
+    
+    </ion-card-header>
+
+    <div class="ion-text-center"><p>Avaliações de usuários</p></div>
+    
+    <ion-list *ngFor='let avaliacao of avaliacao'> 
+
+      <ion-item>
+  
+        <ion-label> 
+         <h3>{{ avaliacao.usuario.nome }}</h3>
+         <p>{{ avaliacao.avaliacao.texto }}</p>
+        </ion-label>
+        <div *ngFor='let i of fakeArray(getnumber(avaliacao.avaliacao.avaliacao))'>
+          <ion-icon name="star" slot="end" color='warning'></ion-icon>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+ 
+
+  <ion-card *ngIf='sobre == true'>
+    <ion-card-content>
+      <h2><b>Sobre o local</b></h2>
+      <p>{{ restaurante.descricao }}</p>
+      <br>
+      <h2><b>Endereço</b></h2>
+      <p>{{ restaurante.endereco }}</p>
+    </ion-card-content>
+
+  
+  </ion-card>
+
+
+ 
+
+
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+<ion-footer>
+  <ion-toolbar mode='ios'>
+   
+    <ion-button (click)='showitens()' slot="start" size="small" color='light'><font color="#512b72">{{ total(this.total_carrinho) }}</font></ion-button>
+    
+    
+      <ion-button slot="end" size="small" color='light' (click)="routerlink_api('/pedido/' + restaurante.id)">
+        <font color="#512b72">Finalizar pedido</font></ion-button>
+        
+  </ion-toolbar>
+</ion-footer>
+
+
+<style>
+  ion-card {
+    --background: #fff;
+  }
+
+  ion-item {
+    --background: #fff
+  }
+
+  .card {
+  background-color: #fff;
+  color: white;
+  padding: 3px;  
+  height: auto;     
+  white-space: break-word;
+  border-radius: 5px;
+  color: black;
+}.cards { 
+  max-width: 300px; 
+  margin: 0 auto;  
+  display: grid;
+  grid-gap: 1rem;
+  white-space: break-word;
+}
+ion-thumbnail > img{
+  width: inherit; height: inherit;
+}
+</style>

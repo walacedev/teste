@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar mode='ios'>
+    <ion-buttons slot="start">
+      <ion-buttons slot="start">
+        <a (click)="routerlink_api('/minha-conta')">
+          <font color='white'>Voltar</font>
+        </a>
+      </ion-buttons>
+    </ion-buttons>
+    <ion-title>Cadastro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>
+          <font color='black'>Faça seu cadastro</font>
+        </ion-card-subtitle>
+        <br>
+        <ion-list>
+          <ion-list-header>
+            Pessoal
+          </ion-list-header>
+          <ion-item>
+            <ion-input type='text' placeholder="Seu nome" [(ngModel)]='nome_s'></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type='text' pattern="[0-9]*" placeholder="Seu telefone" [(ngModel)]='tel_s'></ion-input>
+          </ion-item>
+        </ion-list>
+        <br><br>
+        <ion-list>
+          <ion-list-header>
+            Conta
+          </ion-list-header>
+          <ion-item>
+            <ion-input type='text' placeholder="Digite um e-mail" [(ngModel)]='email_s'></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type='password' placeholder="Digite uma senha" [(ngModel)]='senha_s'></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-card-header>
+      <section class="ion-text-center">
+        <ion-button color="warning" (click)='cadastro()'> Cadastrar </ion-button>
+      </section>
+      <br>
+      <br>
+      <div class="ion-text-center">
+        <p>Já possui uma conta?</p>
+        <a (click)="this.navCtrl.navigateRoot('/minha-conta');">Fazer login</a>
+      </div>
+      <br>
+    </ion-card>
+  </div>
+
+</ion-content>
+
+<style>
+  ion-card {
+    --background: #fff;
+    --color: #000;
+  }
+
+  ion-item, ion-list-header, ion-list {
+    --background: #fff;
+    --color: #000;
+  }
+
+
+</style>

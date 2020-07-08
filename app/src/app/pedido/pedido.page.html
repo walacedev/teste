@@ -1,0 +1,198 @@
+<ion-header>
+  <ion-toolbar mode='ios'>
+    <ion-buttons slot="start">
+      <ion-buttons slot="start">
+        <a (click)="routerlink_api('/cardapio/' + id)">
+          <h3>
+            <ion-icon style="color: white;" name="arrow-back"></ion-icon>
+          </h3>
+        </a>
+      </ion-buttons>
+    </ion-buttons>
+    <ion-title>Fechar carrinho</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="ion-padding">
+  <div>
+{{ produtos_string }}
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>
+         
+          <font color="black">Pedido</font>
+        </ion-card-subtitle>
+        <br>
+        <div class="line"></div>
+        <br>
+        <div *ngFor="let carrinho_s of produtos">
+          <ion-card-subtitle>
+            <font color="#000" size='2px'>
+              <b>Produto</b>
+            </font>
+          </ion-card-subtitle>
+          <ion-text color="black"> {{ carrinho_s.quantidade }}x {{ carrinho_s.nome }} -
+            <b>{{ precos(carrinho_s.preco) }}
+              (cada)</b></ion-text><br>
+          <br>
+          <div *ngFor="let acre of carrinho_s.adicionais">
+            <div *ngIf="acre != null">
+              <ion-card-subtitle>
+                <font color="black">{{ get_categoria(acre.de) }}</font>
+              </ion-card-subtitle>
+              <ion-text color="black"> {{ acre.nome }} - <b>R${{ acre.preco }} ({{ acre.quantidade }}x)</b></ion-text>
+            </div>
+            <br>
+          </div>
+          <div *ngFor="let acre of carrinho_s.adicionais_prev">
+            <div *ngIf="acre != null">
+              <ion-card-subtitle>
+                <font color="black">{{ get_categoria(acre.de) }}</font>
+              </ion-card-subtitle>
+              <ion-text color="black">{{ acre.nome }} - <b>{{ precos(acre.preco) }} ({{ acre.quantidade }}x)</b>
+              </ion-text>
+            </div>
+            <br>
+          </div>
+          <div *ngFor="let acre of carrinho_s.adicionais_gratis">
+            <div *ngIf="acre != null">
+              <ion-card-subtitle>
+                <font color="black">{{ get_categoria(acre.de) }}</font>
+              </ion-card-subtitle>
+              <ion-text color="black">{{ acre.nome }} - <b>{{ precos(acre.preco) }} ({{ acre.quantidade }}x)</b>
+              </ion-text>
+            </div>
+          </div>
+          <a (click)='remove_item(carrinho_s)'>Remover item</a><br>
+          <br>
+          <div class="line"></div>
+          <br>
+        </div>
+      </ion-card-header>
+      <ion-card-content>
+        <div *ngIf="frete != 0"><b>FRETE</b> {{ precos(frete) }} </div>  
+        <div *ngIf='frete_status == false'>Escolha como deseja receber</div>
+        <b>TOTAL</b>
+        <ion-text style="text-transform: uppercase">
+          {{ precos(this.total_carrinho) }}<br>
+        </ion-text>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-radio-group [(ngModel)]='buscar_s'>
+      <ion-list-header>
+        <ion-label>Como deseja receber?</ion-label>
+      </ion-list-header>
+      <ion-item *ngIf='restaurante.entrega_tipo == "2" || restaurante.entrega_tipo == "3"' (click)='buscarchange()'>
+        <ion-label>Receber em casa</ion-label>
+        <ion-radio slot="start" color="success" value="casa"></ion-radio>
+      </ion-item>  
+      <ion-item *ngIf='restaurante.entrega_tipo == "1" || restaurante.entrega_tipo == "3"' (click)='buscarchange()'>
+        <ion-label>Buscar no local</ion-label>
+        <ion-radio slot="start" color="tertiary" value="buscar"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+    <ion-card *ngIf='buscar_s == "buscar"'>
+      <ion-card-header>
+        <ion-card-subtitle>
+          <font color="black">Endereço para buscar</font>
+        </ion-card-subtitle>
+        <p><b>Endereço:</b> {{ restaurante.endereco }}</p>
+        <p><b>Cidade:</b> {{ getcidade_b(restaurante.cidade) }}</p>
+      </ion-card-header>
+    </ion-card>
+
+
+
+    <ion-card *ngIf="buscar_s == 'casa'">
+      <ion-card-header>
+        <ion-card-subtitle>
+          <font color="black">Endereço de entrega</font>
+        </ion-card-subtitle>
+        <br>
+        <ion-list>
+            <ion-select (ionChange)='changefrete()' mode="md" [(ngModel)]='endereco' placeholder='Escolha seu endereço' interface="action-sheet" okText="Escolher" cancelText="Cancelar" >
+              <div *ngFor='let e of enderecos'>
+                <ion-select-option value="{{ e.id }}">{{ e.endereco }} | N°: {{ e.numero }}</ion-select-option>
+              </div>
+            </ion-select>
+        
+          <div>
+            <p><a (click)='routerlink_api("/enderecos")'>Adicionar ou editar endereço</a></p>
+           </div>
+        </ion-list>
+        <br>
+      </ion-card-header>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>
+          <font color="black">Observações</font>
+        </ion-card-subtitle>
+        <ion-input [(ngModel)]="obs_s" type="text" placeholder="Exemplo: entregar na portaria"></ion-input>
+      </ion-card-header>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>
+          <font color="black">Cupom de desconto</font>
+          <p>{{ desccupom }}</p>
+        </ion-card-subtitle>
+        <ion-input [(ngModel)]="cupom_s" type="text" placeholder="Digite seu cupom"></ion-input>
+        <a (click)="cupom()">Aplicar</a>
+      </ion-card-header>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>
+          <font color="black">PAGAMENTO</font>
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label>Como deseja pagar?</ion-label>
+          <ion-select mode="md" [(ngModel)]='pedir_s' interface="action-sheet" okText="Escolher" cancelText="Cancelar">
+            <ion-select-option value="dinheiro">Dinheiro</ion-select-option>
+            <ion-select-option value="cartao">Cartão (Crédido ou débito)</ion-select-option>
+            <div *ngFor='let pay of pagamentos'>
+              <ion-select-option *ngIf='restaurante.online == "on"' value='{{ pay.id }}'>{{ getbandeira(pay.number) }} final {{ pay.number.substr(-4) }}</ion-select-option >
+            </div>
+          </ion-select>
+        </ion-item>
+
+ 
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button *ngIf='processando == false' size='block' (click)='pedir()' color="dark">Fazer pedido</ion-button>
+    <ion-button *ngIf='processando == true' size='block' disabled color="dark">Processando pedido</ion-button>
+
+  </div>
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+<style>
+  ion-item {
+    --background: #fff;
+    --color: #000
+  }
+
+  ion-card {
+    --background: #fff;
+    --color: #000
+  }
+
+  .line {
+    width: 100%;
+    height: 1px;
+    background-color: black;
+  }
+</style>

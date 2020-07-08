@@ -1,0 +1,7 @@
+{
+  "name": "WallDelivery_v2",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

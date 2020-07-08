@@ -1,0 +1,385 @@
+<ion-header>
+  <ion-toolbar mode='ios'>
+    <div *ngIf='atual_b == true'>
+        <ion-buttons slot="start">
+          <a (click)='atual_b = false; atual = []'>
+            <h3><ion-icon style="color: white;" name="arrow-back"></ion-icon></h3>
+          </a>
+        </ion-buttons>
+    </div>
+    <ion-title>Pedidos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div *ngIf='admin == false'>
+    <div *ngIf="logado == true">
+      <div *ngIf="atual_b == false">
+        <div *ngFor="let item of menuarray">
+          <ion-card>
+            <ion-card-header>
+              <h2>{{ restaurante(item.restaurante, 'nome') }}</h2>
+              <ion-card-subtitle>{{ item.horario }}</ion-card-subtitle>
+              -----------------------
+              <ion-list *ngFor="let itens of getjson(item.itens)">
+                {{ itens.nome }} - R${{ itens.preco }}
+              </ion-list>
+              -----------------------
+              <br>
+              <ion-item *ngIf="item.status == 'not_pay'">
+                <ion-icon name='play' color='danger'></ion-icon>
+                <ion-label>Pedido em análise</ion-label>
+              </ion-item>
+              <ion-item *ngIf="item.status == 'preparing'">
+                <ion-icon name='play' color='warning'></ion-icon>
+                <ion-label>Preparando pedido</ion-label>
+              </ion-item>
+              <ion-item *ngIf="item.status == 'quit_sender'">
+                <ion-icon name='play' color='tertiary'></ion-icon>
+                <ion-label>Saiu para entrega</ion-label>
+              </ion-item>
+              <ion-item *ngIf="item.status == 'success'">
+                <ion-icon name='play' color='success'></ion-icon>
+                <ion-label>Pedido entregue</ion-label>
+              </ion-item>
+              <ion-item *ngIf="item.status == 'canceled'">
+                <ion-icon name='play' color='danger'></ion-icon>
+                <ion-label>Pedido cancelado</ion-label>
+              </ion-item>
+              <ion-item *ngIf="item.status == 'estorned'">
+                <ion-icon name='play' color='danger'></ion-icon>
+                <ion-label>Pedido cancelado</ion-label>
+              </ion-item>
+              <br>
+              <a (click)='pedido(item.id)'>Detalhes</a>&nbsp;&nbsp;&nbsp;<a
+              *ngIf='item.status != "canceled"' (click)='avaliar(item.status, item.restaurante)'>Avaliar</a>&nbsp;&nbsp;&nbsp;<a *ngIf='item.status != "canceled"'
+                (click)='cancelar(item.restaurante)'>Cancelar</a>
+            </ion-card-header> 
+          </ion-card>
+        </div>
+      </div>
+
+      <div *ngIf="atual_b == true">
+        <div *ngFor="let atualitem of atual">
+          <ion-card>
+            <ion-card-header>
+              <h2>{{ restaurante(atualitem.restaurante, 'nome') }}</h2>
+              <ion-card-subtitle>Pedido #{{ atualitem.id }}00</ion-card-subtitle>
+              <ion-card-subtitle>{{ atualitem.horario }}</ion-card-subtitle>
+              <ion-list *ngFor="let itens of getjson(atualitem.itens)">
+                <br><b>Produto:</b><br>
+                ({{ itens.quantidade }}x) - {{ itens.nome }} - R${{ itens.preco }}
+                <div *ngFor="let acre of itens.adicionais">
+                  <div *ngIf="acre != null">
+                    <ion-card-subtitle>
+                      <font color="black">{{ get_categoria(acre.de) }}</font>
+                    </ion-card-subtitle>
+                    <ion-text color="black"> {{ acre.nome }} - <b>R${{ acre.preco }} ({{ acre.quantidade }}x)</b></ion-text>
+                  </div>
+                  <br>
+                </div>
+                <div *ngFor="let acre of itens.adicionais_prev">
+                  <div *ngIf="acre != null">
+                    <ion-card-subtitle>
+                      <font color="black">{{ get_categoria(acre.de) }}</font>
+                    </ion-card-subtitle>
+                    <ion-text color="black">{{ acre.nome }} - <b>R${{ acre.preco }} ({{ acre.quantidade }}x)</b></ion-text>
+                  </div>
+                  <br>
+                </div>
+                <div *ngFor="let acre of itens.adicionais_gratis">
+                  <div *ngIf="acre != null">
+                    <ion-card-subtitle>
+                      <font color="black">{{ get_categoria(acre.de) }}</font>
+                    </ion-card-subtitle> 
+                    <ion-text color="black">{{ acre.nome }} - <b>R${{ acre.preco }}  ({{ acre.quantidade }}x)</b></ion-text>
+                  </div>
+                  <br>
+                </div>
+              </ion-list>
+            </ion-card-header>
+          </ion-card>
+
+          <ion-card *ngIf="atualitem.pagamento != 'Buscar no local'">
+            <ion-card-header>
+              <ion-card-subtitle>Endereço do comprador</ion-card-subtitle>
+              <ion-list><b>Endereço:</b> {{ get_endereco(atualitem.endereco, 'endereco')}}</ion-list>
+              <ion-list><b>Cidade:</b> {{ get_cidades(get_endereco(atualitem.endereco, 'cidade'))}}</ion-list>
+              <ion-list><b>Bairro:</b> {{ get_bairros(get_endereco(atualitem.endereco, 'bairro'))}}</ion-list>
+              <ion-list><b>Número:</b> {{ get_endereco(atualitem.endereco, 'numero')}}</ion-list>
+              <ion-list><b>Comp:</b> {{ get_endereco(atualitem.endereco, 'complemento')}}</ion-list>
+            </ion-card-header>
+          </ion-card>
+
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Pagamento</ion-card-subtitle>
+              <ion-list>{{ atualitem.pagamento }}</ion-list>
+            </ion-card-header>
+          </ion-card>
+
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Status do pedido</ion-card-subtitle>
+              <ion-item *ngIf="atualitem.status == 'not_pay'">
+                <ion-icon name='play' color='danger'></ion-icon>
+                <ion-label>Pedido em análise</ion-label>
+              </ion-item>
+              <ion-item *ngIf="atualitem.status == 'preparing'">
+                <ion-icon name='play' color='warning'></ion-icon>
+                <ion-label>Preparando pedido</ion-label>
+              </ion-item>
+              <ion-item *ngIf="atualitem.status == 'quit_sender'">
+                <ion-icon name='play' color='tertiary'></ion-icon>
+                <ion-label>Saiu para entrega</ion-label>
+              </ion-item>
+              <ion-item *ngIf="atualitem.status == 'success'">
+                <ion-icon name='play' color='success'></ion-icon>
+                <ion-label>Pedido entregue</ion-label>
+              </ion-item>
+              <ion-item *ngIf="atualitem.status == 'canceled'">
+                <ion-label>Pedido cancelado não chegou a cobrar no cartão</ion-label>
+              </ion-item>
+              <ion-item *ngIf="atualitem.status == 'estorned'">
+                <ion-label>Pedido cancelado e pagamento devolvido.</ion-label>
+              </ion-item>
+            </ion-card-header>
+          </ion-card>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- ADMINISTRADOR -->
+  <!-- ADMINISTRADOR -->
+  <!-- ADMINISTRADOR -->
+  <!-- ADMINISTRADOR -->
+  <!-- ADMINISTRADOR -->
+  <!-- ADMINISTRADOR -->
+  <!-- ADMINISTRADOR -->
+  <!-- ADMINISTRADOR -->
+  <!-- ADMINISTRADOR -->
+  <!-- ADMINISTRADOR -->
+
+
+  <div *ngIf='admin == true'>
+    <div *ngIf="logado == true">
+      <div *ngIf="atual_b == false">
+        <div *ngFor="let item of menuarray">
+          <ion-card> 
+            <ion-card-header (click)='pedido(item.id)'>
+              <h2>{{ restaurante(item.restaurante, 'nome') }}</h2>
+              <h4>Pedido: {{ item.id }}00</h4>
+              <ion-card-subtitle>{{ item.horario }}</ion-card-subtitle>
+              -----------------------
+              <ion-list *ngFor="let itens of getjson(item.itens)">
+                {{ itens.nome }} - R${{ itens.preco }}
+              </ion-list>
+              ----------------------- 
+              <br>
+              <ion-item *ngIf="item.status == 'not_pay'">
+                <ion-icon name='play' color='danger'></ion-icon>
+                <ion-label>Pedido em análise</ion-label>
+              </ion-item>
+              <ion-item *ngIf="item.status == 'preparing'">
+                <ion-icon name='play' color='warning'></ion-icon>
+                <ion-label>Preparando pedido</ion-label>
+              </ion-item>
+              <ion-item *ngIf="item.status == 'quit_sender'">
+                <ion-icon name='play' color='tertiary'></ion-icon>
+                <ion-label>Saiu para entrega</ion-label>
+              </ion-item>
+              <ion-item *ngIf="item.status == 'success'">
+                <ion-icon name='play' color='success'></ion-icon>
+                <ion-label>Pedido entregue</ion-label>
+              </ion-item>
+              <ion-item *ngIf="item.status == 'canceled'">
+                <ion-icon name='play' color='danger'></ion-icon>
+                <ion-label>Pedido cancelado</ion-label>
+              </ion-item>
+              <ion-item *ngIf="item.status == 'estorned'">
+                <ion-icon name='play' color='danger'></ion-icon>
+                <ion-label>Pedido cancelado</ion-label>
+              </ion-item>  
+            
+            </ion-card-header>
+        
+         <ion-card-content> 
+            <ion-select placeholder="Altere o status" (ionChange)="changepedido($event, item.id)">
+            <ion-select-option value='not_pay'>Pedido em análise</ion-select-option>
+            <ion-select-option value='preparing'>Preparando pedido</ion-select-option>
+            <ion-select-option value='quit_sender'>Saiu para entrega</ion-select-option>
+            <ion-select-option value='success'>Pedido entregue</ion-select-option>
+            <ion-select-option value='canceled'>Pedido cancelado</ion-select-option>
+          </ion-select>
+        </ion-card-content>
+             
+            
+          </ion-card>
+        </div>
+      </div>
+
+      <div *ngIf="atual_b == true">
+        <div *ngFor="let atualitem of atual">
+          <ion-card>
+            <ion-card-header>
+              <h2>{{ restaurante(atualitem.restaurante, 'nome') }}</h2>
+              <ion-card-subtitle>Pedido #{{ atualitem.id }}00</ion-card-subtitle>
+              <ion-card-subtitle>{{ atualitem.horario }}</ion-card-subtitle>
+           
+                 <ion-list *ngFor="let itens of getjson(atualitem.itens)">
+                <br><b>Produto:</b><br>
+                ({{ itens.quantidade }}x) - {{ itens.nome }} - R${{ itens.preco }}
+                <div *ngFor="let acre of itens.adicionais">
+                  <div *ngIf="acre != null">
+                    <ion-card-subtitle>
+                      <font color="black">{{ get_categoria(acre.de) }}</font>
+                    </ion-card-subtitle>
+                    <ion-text color="black"> {{ acre.nome }} - <b>R${{ acre.preco }} ({{ acre.quantidade }}x)</b></ion-text>
+                  </div>
+                  <br>
+                </div>
+                <div *ngFor="let acre of itens.adicionais_prev">
+                  <div *ngIf="acre != null">
+                    <ion-card-subtitle>
+                      <font color="black">{{ get_categoria(acre.de) }}</font>
+                    </ion-card-subtitle>
+                    <ion-text color="black">{{ acre.nome }} - <b>R${{ acre.preco }} ({{ acre.quantidade }}x)</b></ion-text>
+                  </div>
+                  <br>
+                </div>
+                <div *ngFor="let acre of itens.adicionais_gratis">
+                  <div *ngIf="acre != null">
+                    <ion-card-subtitle>
+                      <font color="black">{{ get_categoria(acre.de) }}</font>
+                    </ion-card-subtitle> 
+                    <ion-text color="black">{{ acre.nome }} - <b>R${{ acre.preco }}  ({{ acre.quantidade }}x)</b></ion-text>
+                  </div>
+                  <br>
+                </div>
+              </ion-list>
+
+
+
+
+
+
+
+
+
+
+
+    
+
+            </ion-card-header>
+          </ion-card>
+
+          <ion-card *ngIf="atualitem.pagamento != 'Buscar no local'">
+            <ion-card-header>
+              <ion-card-subtitle>Endereço do comprador</ion-card-subtitle>
+              <ion-list><b>Endereço:</b> {{ get_endereco(atualitem.endereco, 'endereco')}}</ion-list>
+              <ion-list><b>Cidade:</b> {{ get_cidades(get_endereco(atualitem.endereco, 'cidade'))}}</ion-list>
+              <ion-list><b>Bairro:</b> {{ get_bairros(get_endereco(atualitem.endereco, 'bairro'))}}</ion-list>
+              <ion-list><b>Número:</b> {{ get_endereco(atualitem.endereco, 'numero')}}</ion-list>
+              <ion-list><b>Comp:</b> {{ get_endereco(atualitem.endereco, 'complemento')}}</ion-list>
+            </ion-card-header>
+          </ion-card>
+
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Pagamento</ion-card-subtitle>
+              <ion-list>{{ atualitem.pagamento }}</ion-list>
+            </ion-card-header>
+          </ion-card>
+
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Status do pedido</ion-card-subtitle>
+              <ion-item *ngIf="atualitem.status == 'not_pay'">
+                <ion-icon name='play' color='danger'></ion-icon>
+                <ion-label>Pedido em análise</ion-label>
+              </ion-item>
+              <ion-item *ngIf="atualitem.status == 'preparing'">
+                <ion-icon name='play' color='warning'></ion-icon>
+                <ion-label>Preparando pedido</ion-label>
+              </ion-item>
+              <ion-item *ngIf="atualitem.status == 'quit_sender'">
+                <ion-icon name='play' color='tertiary'></ion-icon>
+                <ion-label>Saiu para entrega</ion-label>
+              </ion-item>
+              <ion-item *ngIf="atualitem.status == 'success'">
+                <ion-icon name='play' color='success'></ion-icon>
+                <ion-label>Pedido entregue</ion-label>
+              </ion-item>
+              <ion-item *ngIf="atualitem.status == 'canceled'">
+                <ion-label>Pedido cancelado não chegou a cobrar no cartão</ion-label>
+              </ion-item>
+              <ion-item *ngIf="atualitem.status == 'estorned'">
+                <ion-label>Pedido cancelado e pagamento devolvido.</ion-label>
+              </ion-item>
+            </ion-card-header>
+          </ion-card>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+<div>
+  <div *ngIf='logado == false'>
+    <p>Faça o login para acompanhar</p>
+    <h2>Seus pedidos!</h2>
+    <ion-button (click)="routerlink_api('/minha-conta')" color='warning'>Clique para entrar</ion-button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+</ion-content>
+
+
+
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="tab-schedule" (click)="routerlink_api('/home')">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Início</ion-label>
+      </ion-tab-button>
+    
+      <ion-tab-button tab="tab-cart" (click)="routerlink_api('/notificacoes')">
+        <ion-icon name="notifications"></ion-icon>
+        <ion-label>Notificações</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="tab-cart" (click)="routerlink_api('/pedidos')">
+        <ion-icon name="cart" color='warning'></ion-icon>
+        <ion-label>Pedidos</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="tab-person" (click)="routerlink_api('/conta')">
+        <ion-icon name="list"></ion-icon>
+        <ion-label>Mais</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+
+<style>
+  ion-card {
+    --background: white;
+  }
+</style>

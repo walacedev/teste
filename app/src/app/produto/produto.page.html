@@ -1,0 +1,149 @@
+<ion-header>
+  <ion-toolbar mode='ios'>
+      <ion-buttons slot="start">
+          <ion-buttons slot="start">
+              <a routerLink="/produtos/{{ back_button }}"><h3><ion-icon style="color: white;" name="arrow-back"></ion-icon></h3></a>
+              </ion-buttons>
+        </ion-buttons>
+        <ion-title><b>Comprar</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle><font color="white">Resumo do produto</font></ion-card-subtitle>
+          <h3>Quantidade <ion-text color="success">
+            <div class="flex_row">
+              <ion-icon style="color: red; width: 50px;" name="remove-circle" (click)='remover_produto();'></ion-icon>
+               {{ this.quantidade }}
+                <ion-icon style="color: green; width: 50px;" name="add-circle" (click)='adicionar_produto();'></ion-icon>
+              
+              </div>
+          </ion-text>
+          <br>
+        <font size='2px'>Disponível para compra: {{ this.estoque }} </font></h3>
+        </ion-card-header>
+        <ion-card-content style="text-transform: uppercase">
+          <h2><b>{{ this.nome }}</b></h2> <br>
+            {{ this.descricao }} <br>
+            Valor <ion-text style="text-transform: uppercase" color="warning" *ngIf="this.nome != null">
+              {{ precos(this.preco) }}
+            </ion-text>
+        </ion-card-content>
+      </ion-card>
+
+      <div *ngFor="let item of limit">
+          {{ item.nome }}
+        </div>
+      <div *ngFor="let car of menuarray_new">
+          <ion-card>
+              <ion-card-header *ngIf='car.gratuito <= 0 && car.prevalecer != "Sim"'>
+                 {{ car.nome }} ({{ qtd(this.final, car.id) }}/{{ car.quantidade }})
+                
+              </ion-card-header>
+              <ion-card-header *ngIf='car.prevalecer == "Sim"'>
+                 {{ car.nome }} ({{ qtd(this.final_prev, car.id) }}/{{ car.quantidade }})
+              </ion-card-header>
+              <ion-card-header *ngIf='car.gratuito > 0'>
+                {{ car.nome }} ({{ qtd(this.final_gratuito, car.id) }}/{{ car.quantidade }})
+                <p>Até {{ car.gratuito }} gratuitos</p>
+              </ion-card-header>
+              <ion-card-content>  
+                <div class="cards">
+                  <div *ngIf='car.gratuito == 0 || car.gratuito == null'>
+                    <ion-item *ngFor="let add of categorias(car.id)">
+                      <div class="card"><p><b>{{ add.nome }}</b></p>
+
+                       <p>{{ add.descricao }}</p>
+                       <p >{{ precos(add.preco) }}</p> 
+                      </div>
+                      <br>
+                      <div class="flex_row">
+                        <ion-icon style="color: red; width: 50px;" name="remove-circle" (click)='remover(add.id);'></ion-icon>
+                         {{ add.quantidade }}
+                          <ion-icon style="color: green; width: 50px;" name="add-circle" (click)='adicionar(car.id, add.id, add.gratuito);'></ion-icon>
+                      </div>
+                    </ion-item>
+                  </div>
+                    <ion-item *ngFor="let add of categorias_gratuitos(car.id, car.gratuito)">
+                      <div class="card"><p><b>{{ add.nome }}</b></p>
+                       
+                       <p>{{ add.descricao }}</p>
+                        
+                      <div *ngIf='add.gratuito == "SIM"'>
+                        <p><b><font color='green'>Gratuito</font></b></p>
+                       </div>
+                       <div *ngIf='add.gratuito != "SIM"'>
+                        <p>{{ precos(add.preco) }}</p>
+                       </div>
+                      </div>
+                      <br>
+                    
+                      <div class="flex_row" slot="end">
+                        <ion-icon style="color: red; font-size: 25px; width: 35px" name="remove-circle" (click)='remover(add.id);'></ion-icon>
+                         {{ add.quantidade }}
+                          <ion-icon style="color: green; font-size: 25px; width: 35px;" name="add-circle" (click)='adicionar(car.id, add.id, add.gratuito);'></ion-icon>
+                      </div>
+                    </ion-item>
+                  </div> 
+                </ion-card-content>
+          </ion-card>
+         
+         
+      </div>
+          <br> 
+           
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar mode='ios'>
+    <ion-button slot="start" size="small" color='light'><font color="#512b72">{{ precos(this.total) }}</font></ion-button>
+
+      <ion-button *ngIf="this.nome != null" slot="end" size="small" color='light' (click)="addcart()">
+        <font color="#512b72">Adicionar ao carrinho</font></ion-button>
+  </ion-toolbar>
+</ion-footer>
+
+<style>
+
+.card {
+  background-color: #fff;
+  color: white;
+  padding: 3px;  
+  height: auto;     
+  white-space: break-word;
+  border-radius: 5px;
+  color: black;
+}.cards { 
+  max-width: 500px; 
+  margin: 0 auto;  
+  display: grid;
+  grid-gap: 1rem;
+  white-space: break-word;
+}
+
+ion-item{
+  white-space: break-word;
+}
+.red:before {
+    color: red;
+    
+    }
+
+    .green:before {
+    color: green;
+    }
+
+    .flex_row {
+    float: right;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row; 
+    flex-direction: row;
+    
+    }
+
+  
+
+</style>

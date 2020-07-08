@@ -1,0 +1,137 @@
+<ion-header>
+  <ion-toolbar mode='ios'>
+    <ion-buttons slot="start">
+      <ion-buttons slot="start">
+        <a (click)="routerlink_api('/conta')">
+          <h3><ion-icon style="color: white;" name="arrow-back"></ion-icon></h3>
+        </a>
+      </ion-buttons>
+    </ion-buttons>
+    <ion-title>Minha conta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="ion-padding">
+
+  <div id="conta" *ngIf="logado == true">
+ 
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>
+          <font color='black'>Seus dados</font>
+        </ion-card-subtitle>
+        <br>
+        <ion-list>
+          <ion-list-header>
+            Pessoal
+          </ion-list-header>
+          <ion-item>
+            <ion-input type='text' placeholder="Seu nome" [(ngModel)]='nome_s'></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input pattern="[0-9]*" type='number' placeholder="Seu telefone" [(ngModel)]='tel_s'></ion-input>
+          </ion-item>
+        </ion-list>
+        <br><br>
+        <ion-list>
+          <ion-list-header>
+            Conta
+          </ion-list-header>
+          <ion-item>
+            <ion-input type='text' placeholder="E-mail" [(ngModel)]='email_s'></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type='password' placeholder="Senha" [(ngModel)]='senha_s'></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-card-header>
+      <section class="ion-text-center">
+        <ion-button (click)='save()' color="warning"> Salvar dados </ion-button>
+      </section>
+      <br>
+      <br>
+      <br>
+    </ion-card>
+  </div>
+
+  <div id="login" *ngIf="logado == false">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>
+       <font color='black'>Entre com sua conta</font>
+        </ion-card-subtitle>
+        <br>
+        <ion-list>
+          <ion-item>
+            <ion-input type='text' placeholder="E-mail" [(ngModel)]='email_l'></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type='password' placeholder="Senha" [(ngModel)]='senha_l'></ion-input>
+          </ion-item>
+
+        
+        </ion-list>
+      </ion-card-header>
+      <section class="ion-text-center">
+        <ion-button color="warning" (click)='login()'> Entrar </ion-button>
+      </section>
+      <br>
+      
+      <br>
+      <div class="ion-text-center">
+        <p>Caso não tenha uma conta</p>
+        <a (click)="this.navCtrl.navigateRoot('/cadastro');">Cadastre-se</a>
+        <br>
+        <a (click)="recovery = true">Esqueci minha senha</a>
+        <br>
+      </div>
+      <br>
+      <br>
+    </ion-card>
+
+    <ion-card *ngIf='recovery == true'>
+      <ion-card-content>
+        <p>Recuperar senha</p>
+       <ion-item>
+         <ion-label position='floating'>Digite seu e-mail</ion-label>
+         <ion-input type='email' placeholder="nome@email.com" [(ngModel)]='email_r'></ion-input>
+       </ion-item>
+       <br>
+       <section class="ion-text-center">
+        <ion-button color="danger" (click)='recovery = false'> Cancelar </ion-button><ion-button color="success" (click)='recuperar()'> Recuperar </ion-button>
+      </section>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+
+
+
+
+</ion-content>
+
+
+<style>
+  #rounded {
+    width: 100%;
+    height: 100px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+</style>
+
+<style>
+  ion-card {
+    --background: #fff;
+    --color: #000;
+  }
+
+  ion-item, ion-list-header, ion-list {
+    --background: #fff;
+    --color: #000;
+  }
+
+
+</style>

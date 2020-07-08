@@ -1,0 +1,69 @@
+<ion-header>
+    <ion-toolbar mode='ios'>
+        <ion-buttons slot="start">
+            <a (click)="routerlink_api('/conta')">
+              <h3><ion-icon style="color: white;" name="arrow-back"></ion-icon></h3>
+            </a>
+          </ion-buttons>
+      <ion-title>Contato</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content fullscreen>
+    <ion-list>
+      <ion-list-header>
+        Qual seu nome?
+      </ion-list-header>
+      <ion-item>
+        <ion-input [(ngModel)]='nome' type='text'></ion-input>
+      </ion-item>
+    </ion-list>
+  
+    <ion-list>
+        <ion-list-header>
+          Qual seu telefone?
+        </ion-list-header>
+        <ion-item>
+          <ion-input [(ngModel)]='telefone' type='text'></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-list-header>
+          Qual seu e-mail?
+        </ion-list-header>
+        <ion-item>
+          <ion-input [(ngModel)]='email' type='email'></ion-input>
+        </ion-item>
+      </ion-list>
+      
+      <ion-list>
+        <ion-list-header> 
+          Qual o assunto?
+        </ion-list-header>
+        <ion-item>
+            <ion-select placeholder="Selecione um assunto" [(ngModel)]='assunto' interface='action-sheet' cancelText="Cancelar">
+                <ion-select-option value="SUGERIR">Sugerir estabelecimento</ion-select-option>
+                <ion-select-option value="RECLACACAO">Reclamação</ion-select-option>
+                <ion-select-option value="SUGESTAO">Sugestão</ion-select-option>
+                <ion-select-option value="PARCEIRO">Parceria</ion-select-option>
+              </ion-select>
+        </ion-item>
+      </ion-list>
+  
+    <ion-list>
+      <ion-list-header>
+        Deixe sua mensagem
+      </ion-list-header>
+      <ion-item>
+        <ion-input [(ngModel)]='msg' type='text'></ion-input>
+      </ion-item>
+    </ion-list>
+    <div class="ion-text-center">
+    <ion-button (click)='send()' color='warning'>Enviar contato</ion-button>
+    </div>
+  
+  
+  
+  </ion-content>
+  

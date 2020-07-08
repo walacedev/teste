@@ -1,0 +1,110 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-buttons slot="start">
+          <a (click)="routerlink_api('/conta')"><h3><ion-icon style="color: white;" name="arrow-back"></ion-icon></h3></a>
+          </ion-buttons>
+    </ion-buttons>
+    <ion-title>Pagamento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf='new == false'>
+    <ion-card>
+      <div *ngIf='this.cards == null'>
+        <ion-card-content>
+          <div class="ion-text-center">
+            <p><font color='black'>Você não tem nenhum cartão adicionado.</font></p>
+            <br>
+            <ion-button (click)='mudar()' color='warning'>Adicionar</ion-button>
+          </div>
+        </ion-card-content>
+      </div> 
+
+
+
+      <ion-card-content *ngIf='this.cards != null'>
+        <div class="ion-text-center">
+          <p><font color='black'>Cartões adicionados</font></p>
+          </div>
+          <br>
+        <div class="ion-text-center">
+          <div *ngFor='let card of cards'>
+            <ion-item>
+              <ion-row>
+                <ion-col col-6>
+                  <div><img src="{{ getbandeira(card.number) }}" alt="" style="width: 50%;"></div>
+                </ion-col>
+                <ion-col>
+                  <div><font color='black'>final {{ card.number.substr(-4) }}</font></div>
+                </ion-col>
+                <ion-col>
+                  <div (click)='deletecard(card.id)'><font color='blue'>Excluir</font></div>
+                </ion-col>
+              </ion-row>
+              <br>
+            </ion-item>
+            <br>
+          </div>
+          <br>
+            <ion-button (click)='mudar()' color='warning'>Adicionar outro</ion-button>
+        </div>    
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+
+
+
+
+  <div class="ion-padding" *ngIf='new == true'>
+   <ion-list>
+    <ion-list-header>
+      Adicione um novo cartão
+    </ion-list-header>
+    <ion-item>
+      <ion-label position='floating'><b>Número do cartão</b></ion-label>
+      <ion-input pattern="[0-9]*"  type='number' placeholder="" [(ngModel)]='number_s'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position='floating'><b>DATA DE VALIDADE</b></ion-label>
+      <ion-datetime displayFormat="MM/YY" max='2030' [(ngModel)]='date_s' placeholder=""></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position='floating'><b>CVV</b></ion-label>
+      <ion-input pattern="[0-9]*" type='number' placeholder="" [(ngModel)]='code_s'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position='floating'><b>NOME DO TITULAR</b></ion-label>
+      <ion-input type="text" [(ngModel)]='name_s' placeholder=""></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position='floating'><b>CPF DO TITULAR</b></ion-label>
+      <ion-input pattern="[0-9]*"  type="number" [(ngModel)]='cpf_s' placeholder=""></ion-input>
+    </ion-item>
+  </ion-list>
+  <div class="ion-text-center">
+    <ion-button (click)='mudar()' color='danger'>Cancelar</ion-button>&nbsp;&nbsp;&nbsp;<ion-button (click)='adicionar()' color='warning'>Adicionar</ion-button>
+  </div>
+  
+  </div>
+
+</ion-content>
+
+
+
+<style>
+  #rounded {
+    width: 100%;
+    height: 100px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+</style>
+
+<style>
+  
+</style>

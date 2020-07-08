@@ -1,0 +1,158 @@
+<ion-header translucent >
+  <ion-toolbar mode='ios'> 
+    <ion-buttons slot="secondary">
+      <ion-button (click)='reload()'>
+        <ion-icon slot="start"  class="ion-icon" slot="icon-only" name="refresh"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+     
+        <img alt="logo" id="header_logo" width="80px" src="assets/imgs/logo.png">
+     
+      </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="routerlink_api('/locais')">
+        <ion-icon class="ion-icon" name="md-pin"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content fullscreen> 
+  <div class="ion-padding" >
+    <ion-toolbar style="--background: #fff;">
+      <ion-searchbar style="--placeholder-size: 1x:" (ionInput)='procurar_array()' [(ngModel)]='procurar_s' placeholder='Busque seu estabelecimento favorito'></ion-searchbar>
+    </ion-toolbar>
+    <div *ngIf='erro_cidade == true'>
+      <ion-card>
+        <ion-card-content>
+          <section class="ion-text-center">
+            {{ local.nome }}
+            <br>
+             <p>Ainda não chegamos à sua região</p>
+             <br>
+             <p><a (click)="routerlink_api('/locais')">Alterar cidade</a></p>
+          </section>
+        </ion-card-content>
+      </ion-card>
+    </div>
+   
+    <ion-list>
+      <div *ngIf="carregando == true">
+        <ion-list-header>
+          
+            <div class="ion-text-center"><b>O que vamos comprar hoje ???</b></div>
+         
+        </ion-list-header>
+        <ion-progress-bar color="warning" type="indeterminate" reversed="true"></ion-progress-bar>
+      </div>
+
+
+      <div *ngIf='this.procurar_s == null'>
+        <div *ngFor="let car of restaurantes">
+          <ion-item (click)="rout(car.id);">   
+            <ion-thumbnail slot="start" style="width: 80px; height: 80px;">
+              <img [src]="img(car.imagem)">
+            </ion-thumbnail>
+            <ion-label> 
+              <h2><b><font size='3px'>{{ car.nome }}</font></b></h2> 
+              <h3><font size='2px'>{{ tipo_entrega(car.entrega_tipo) }}</font></h3>
+              <h3><font size='2px'>{{ get_categoria(car.categoria) }}</font></h3>
+              <p><span [innerHTML]="status_restaurante(car.status)"></span></p>
+
+        
+            </ion-label>
+          </ion-item>
+        </div>
+      </div>
+
+
+      <div *ngIf='this.procurar_s != null'>
+        <div *ngFor="let car of procurar_array()">
+          <ion-item (click)="rout(car.id);">   
+            <ion-thumbnail slot="start" style="width: 80px; height: 80px;">
+              <img [src]="img(car.imagem)">
+            </ion-thumbnail>
+            <ion-label> 
+              <h2><b>{{ car.nome }}</b></h2> 
+              <h3>{{ tipo_entrega(car.entrega_tipo) }}</h3>
+              <p><span [innerHTML]="status_restaurante(car.status)"></span></p>
+            </ion-label>
+          </ion-item>
+        </div>
+      </div>
+      
+    </ion-list>
+
+
+    <ion-item (click)="sendmail()" *ngIf='show == true'>
+      <ion-label>
+        <h3>Não achou seu estabelecimento favorito?</h3>
+        <p>Faça uma sugestão!</p>
+      </ion-label>
+    </ion-item>
+
+
+
+
+
+
+    <!--- 
+      <ion-button *ngIf='logado == false' (click)="routerlink_api('/minha-conta')" size="block" color='black'>CADASTRE-SE</ion-button>
+      <ion-button *ngIf='logado == true' (click)="routerlink_api('/minha-conta')" size="block" color='black'>MINHA CONTA</ion-button>
+      <ion-button (click)="cardapio()" size="block" color='black'>FAZER PEDIDO</ion-button>
+      <ion-button (click)="routerlink_api('/contato')" size="block" color='black'>SOBRE</ion-button>
+      -->
+
+
+    <br>
+  </div>
+
+</ion-content>
+
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="tab-schedule" (click)="routerlink_api('/home')">
+        <ion-icon name="home" color='warning'></ion-icon>
+        <ion-label>Início</ion-label>
+      </ion-tab-button>
+    
+      <ion-tab-button tab="tab-cart" (click)="routerlink_api('/notificacoes')">
+        <ion-icon name="notifications"></ion-icon>
+        <ion-label>Notificações</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="tab-cart" (click)="routerlink_api('/pedidos')">
+        <ion-icon name="cart"></ion-icon>
+        <ion-label>Pedidos</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="tab-person" (click)="routerlink_api('/conta')">
+        <ion-icon name="list"></ion-icon>
+        <ion-label>Mais</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+
+
+<style scoped>
+  .ion-icon {
+    color: white
+  }
+
+  .logo {
+    width: 250px;
+    margin: auto;
+    display: block;
+  }
+  .toolbar-background-md {
+    background: linear-gradient(to bottom right, #00a7ad, #004547);
+}
+
+.bar-button-default-md {
+  color: #fff;
+}
+ion-thumbnail > img{
+  width: inherit; height: inherit;
+}
+
+</style>

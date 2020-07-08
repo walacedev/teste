@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar mode='ios'> 
+    <ion-title>Mais</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="ion-padding">
+  
+  <ion-list *ngIf="logado == true">
+    <ion-item (click)='routerlink_api("/minha-conta")'>
+      <ion-icon slot="end" name="md-contact" class="ion-icon"></ion-icon>
+      <ion-label><h2>Minha conta</h2></ion-label>
+    </ion-item>
+
+    <ion-item (click)='routerlink_api("/enderecos")'>
+      <ion-icon slot="end" name="md-home" class="ion-icon"></ion-icon>
+      <ion-label><h2>Endereços de entrega</h2></ion-label>
+    </ion-item>
+
+    <ion-item (click)='routerlink_api("/pagamento")'>
+      <ion-icon slot="end" name="md-card" class="ion-icon"></ion-icon>
+      <ion-label><h2>Formas de pagamento</h2></ion-label>
+    </ion-item>
+
+    <ion-item (click)='share()'>
+      <ion-icon slot="end" name="md-share" class="ion-icon"></ion-icon>
+      <ion-label><h2>Compartilhar nosso App</h2></ion-label>
+    </ion-item>
+
+    <ion-item (click)='routerlink_api("/pedido-info")'>
+      <ion-icon slot="end" name="md-happy" class="ion-icon"></ion-icon>
+      <ion-label><h2>Sugestões e reclamações</h2></ion-label>
+    </ion-item>
+
+
+    <div *ngIf='status == true'>
+      <ion-item *ngIf='admin == true && myaccount.de != 1'>
+        <ion-label><h2>Restaurante (ABERTO)</h2></ion-label>
+        <ion-toggle (ionChange)='statuschange("OFF")' [(ngModel)]="status" color='warning' slot="end" checked></ion-toggle>
+      </ion-item>
+    </div>
+    <div *ngIf='status == false'>
+      <ion-item *ngIf='admin == true && myaccount.de != 1'>
+        <ion-label><h2>Restaurante (FECHADO)</h2></ion-label>
+        <ion-toggle (ionChange)='statuschange("ON")' [(ngModel)]="status" color='warning' slot="end"></ion-toggle>
+      </ion-item>
+    </div>
+    
+ 
+    <br>
+    <br>
+    <ion-item (click)='sair()'>
+      <ion-icon slot="end" name="md-log-out" class="ion-icon"></ion-icon>
+      <ion-label><h2>Sair</h2></ion-label>
+    </ion-item>
+
+
+  </ion-list>
+
+
+
+  <ion-list *ngIf="logado == false">
+    <ion-item (click)='routerlink_api("/minha-conta")'>
+      <ion-icon slot="end" name="md-contact" class="ion-icon"></ion-icon>
+      <ion-label><h2>Fazer Login</h2></ion-label>
+    </ion-item>
+
+    <ion-item (click)='routerlink_api("/pedido-info")' >
+      <ion-icon slot="end" name="md-happy" class="ion-icon"></ion-icon>
+      <ion-label><h2>Sugestões e reclamações</h2></ion-label>
+    </ion-item>
+
+    <ion-item (click)='share()'>
+      <ion-icon slot="end" name="md-share" class="ion-icon"></ion-icon>
+      <ion-label><h2>Compartilhar nosso app</h2></ion-label>
+    </ion-item>
+  </ion-list>
+
+
+  <div class="ion-text-center">
+    <font size="2px" color="gray">Aplicativo desenvolvido por <a href="">Ores Software</a></font>
+  </div> 
+</ion-content>
+
+
+
+ 
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="tab-schedule" (click)="routerlink_api('/home')">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Início</ion-label>
+      </ion-tab-button>
+    
+      <ion-tab-button tab="tab-cart" (click)="routerlink_api('/notificacoes')">
+        <ion-icon name="notifications"></ion-icon>
+        <ion-label>Notificações</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="tab-cart" (click)="routerlink_api('/pedidos')">
+        <ion-icon name="cart"></ion-icon>
+        <ion-label>Pedidos</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="tab-person" (click)="routerlink_api('/conta')">
+        <ion-icon name="list" color='warning'></ion-icon>
+        <ion-label>Mais</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+
+
+<style>
+.ion-icon {
+    color: #512b72
+  }
+
+  h2{
+    color: gray
+  }
+</style>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "730498571992",
+    "firebase_url": "https://kbeca-e2d77.firebaseio.com",
+    "project_id": "kbeca-e2d77",
+    "storage_bucket": "kbeca-e2d77.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:730498571992:android:b10114e4dd19e929cc01ad",
+        "android_client_info": {
+          "package_name": "com.kbeca.wallestudios.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "730498571992-ok6ha5hf7rl696k0gk1cluo1e6t0d837.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIuSZc3OspBy4dR9MJ5G5sSymtmKQHPkA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "730498571992-ok6ha5hf7rl696k0gk1cluo1e6t0d837.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-buttons slot="start">
+              <a (click)="routerlink_api('/home')"><h3><ion-icon style="color: white;" name="arrow-back"></ion-icon></h3></a>
+              </ion-buttons>
+        </ion-buttons>
+    <ion-title>{{ nome }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="ion-padding">
+
+
+    <ion-card>
+        <ion-card-header>
+          <ion-card-title><font color='white'>{{ nome }}</font></ion-card-title>
+          <ion-card-subtitle><font color='gray'>{{ sobre }}</font></ion-card-subtitle>
+        </ion-card-header>
+        <ion-list>
+          <ion-list-header>
+            Telefone
+          </ion-list-header>
+          <ion-item>
+            <a href="tel:{{ local_phone }}">{{ local_phone }}</a>
+          </ion-item>
+        </ion-list>
+        <ion-list>
+          <ion-list-header>
+            WhatsApp
+          </ion-list-header>
+          <ion-item>
+            <a href="https://api.whatsapp.com/send?phone=55{{ whatsapp }}" target="_system">{{ whatsapp }}</a>
+          </ion-item>
+        </ion-list>
+        <br>
+      </ion-card>
+  
+
+
+
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title><font color='white'>WallEstudios</font></ion-card-title>
+          </ion-card-header>
+        <ion-card-content style="text-transform: uppercase">
+          <ion-text>
+              Criamos seu app
+          </ion-text>
+          <br>
+          <ion-text><font size="5px"><a href="https://api.whatsapp.com/send?phone=553191705191" target="_system">Peça o seu</a></font></ion-text>
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>
+
+
+
+<style>
+ion-card {
+      --background: rgb(29, 0, 75);
+      --color: #fff;
+    }
+
+    ion-item {
+      --background: rgb(29, 0, 75);
+    }
+
+</style>

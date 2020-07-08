@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar mode='ios'>
+    <ion-title>Selecione um local</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div *ngFor="let local of locais">
+
+ <ion-card (click)="set(local)">
+  <ion-card-header>
+    <b>{{ local.nome }}</b>
+    <p>{{ get_estados(local.estado) }}</p>
+  </ion-card-header>
+ </ion-card> 
+</div>
+</ion-content>
+<style>
+  ion-card { 
+    --background: #fff;
+    --color: #000
+  }
+
+
+</style> 

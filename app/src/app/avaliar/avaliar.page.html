@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar mode='ios'>
+    <ion-title>Avaliação #{{ id }}00</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list>
+    <ion-list-header>
+      Como estava a qualidade do produto?
+    </ion-list-header>
+    <ion-item>
+      <ion-range [(ngModel)]='qualidade' min="0" max="5" pin color="warning"></ion-range>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      Como foi a entrega?
+    </ion-list-header>
+    <ion-item>
+      <ion-range [(ngModel)]='rapidez' min="0" max="5" pin color="warning"></ion-range>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      Qual sua avaliação?
+    </ion-list-header>
+    <ion-item>
+      <ion-range [(ngModel)]='avaliacao' min="0" max="5" pin color="warning"></ion-range>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      Deixe um comentário
+    </ion-list-header>
+    <ion-item>
+      <ion-input [(ngModel)]='comentario' type='text'></ion-input>
+    </ion-item>
+  </ion-list>
+  <div class="ion-text-center">
+  <ion-button (click)='send()' color='warning'>Enviar avaliação</ion-button>
+  </div>
+
+
+
+</ion-content>

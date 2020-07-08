@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar mode='ios'>
+      <ion-buttons slot="start">
+          <ion-buttons slot="start">
+              <a (click)="routerlink_api('/cardapio/' + id)"><h3><ion-icon style="color: white;" name="arrow-back"></ion-icon></h3></a>
+              </ion-buttons>
+        </ion-buttons>
+        <ion-title><b>Comprar</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="ion-padding">
+  <div *ngFor="let car of produtos">
+
+      <ion-item (click)="rout(car.id);">
+        <ion-thumbnail slot="start" style="width: 60px; height: 60px;">
+          <img [src]="img(car.img)">
+        </ion-thumbnail>
+        <div class="card"><p><b>{{ car.nome }}</b></p>
+          <p *ngIf='car.destaque == "Sim"'><font color='#d4950b'><ion-icon name='star'></ion-icon> Produto em destaque</font></p>
+          <p>{{ car.descricao }}</p>
+          <p >{{ precos(car.preco) }}</p> 
+
+
+         </div>
+        
+        </ion-item>
+
+      </div> 
+
+</ion-content>
+ 
+<style>
+    
+    ion-item {
+    --background: #fff;
+    --color: #fff;
+}
+  
+ion-content {
+    --background: #fff;
+
+} .card {
+  background-color: #fff;
+  color: white;
+  padding: 2px;  
+  height: auto;     
+  white-space: break-word;
+  border-radius: 5px;
+  color: black;
+}.cards { 
+  max-width: 300px; 
+  margin: 0 auto;  
+  display: grid;
+  grid-gap: 1rem;
+  white-space: break-word;
+}  
+ion-thumbnail > img{
+  width: inherit; height: inherit;
+}
+  </style>

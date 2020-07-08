@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar mode='ios'>
+    <ion-title>Notificações</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+
+  <div *ngFor='let noty of notificacoes'>
+
+
+    <ion-card>
+      <ion-card-header>
+        <ion-label>
+          <h3><b>{{ noty.nome }}</b></h3>
+          <p>{{ noty.data }}</p>
+          <h3>{{ noty.texto }}</h3>
+        </ion-label>
+      </ion-card-header>
+    </ion-card>
+
+
+  </div>
+  <div *ngIf='logado == false'>
+    <p>Faça o login para acompanhar</p>
+    <h2>Suas notificações!</h2>
+    <ion-button (click)="routerlink_api('/minha-conta')" color='warning'>Clique para entrar</ion-button>
+  </div>
+</ion-content>
+
+
+<ion-tab-bar slot="bottom">
+  <ion-tab-button tab="tab-schedule" (click)="routerlink_api('/home')">
+    <ion-icon name="home"></ion-icon>
+    <ion-label>Início</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button tab="tab-cart" (click)="routerlink_api('/notificacoes')">
+    <ion-icon name="notifications" color='warning'></ion-icon>
+    <ion-label>Notificações</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button tab="tab-cart" (click)="routerlink_api('/pedidos')">
+    <ion-icon name="cart"></ion-icon>
+    <ion-label>Pedidos</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button tab="tab-person" (click)="routerlink_api('/conta')">
+    <ion-icon name="list"></ion-icon>
+    <ion-label>Mais</ion-label>
+  </ion-tab-button>
+</ion-tab-bar>
+
+

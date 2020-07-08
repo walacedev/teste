@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar mode='ios'>
+    <ion-buttons slot="primary">
+      <ion-button (click)="criar = true" *ngIf="criar == false">
+        <font color="white"><ion-icon slot="end" name="add"></ion-icon></font>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Seus endereços</ion-title>
+    <ion-buttons slot="secondary">
+
+
+      <ion-button *ngIf="criar == false && id_restaurante != null" (click)='routerlink_api("/pedido/"+id_restaurante.id)'>
+        <font color="white"><ion-icon slot="start" name="arrow-back"></ion-icon></font>
+      </ion-button>
+
+      <ion-button *ngIf="criar == false && id_restaurante == null" (click)='routerlink_api("/conta")'>
+        <font color="white"><ion-icon slot="start" name="arrow-back"></ion-icon></font>
+      </ion-button>
+
+
+
+      <ion-button *ngIf="criar == true" (click)='criar = false'>
+        <font color="white"><ion-icon slot="start" name="arrow-back"></ion-icon></font>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar> 
+</ion-header>
+
+<ion-content *ngIf="criar == false" class="ion-padding">
+
+  <ion-list *ngFor="let end of enderecos">
+    <ion-card>
+      <ion-card-content>
+        <b> {{ end.endereco }} | N°{{ end.numero }}</b><br>
+        {{ getbairro(end.bairro) }} <br><br>
+         <a (click)='delete(end.id)'>Excluir</a>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+</ion-content> 
+
+
+<ion-content *ngIf="criar == true" class="ion-padding" >
+
+  <ion-list>
+    <ion-item>
+      <ion-label  position='floating'>Seu endereço</ion-label>
+      <ion-input  [(ngModel)]='rua_s' type='text'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position='floating'>Número</ion-label>
+      <ion-input [(ngModel)]='numero_s'  type='text'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position='floating'>Complemento</ion-label>
+      <ion-input [(ngModel)]='complemento_s' type='text'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position='floating'>Cidade</ion-label>
+      <ion-select [(ngModel)]='cidade_s' placeholder="Selecione sua cidade" >
+        <div *ngFor="let cidade of cidades"> 
+          <ion-select-option value='{{ cidade.id }}'>{{cidade.nome}}</ion-select-option>
+        </div>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position='floating'>Bairro</ion-label>
+      <ion-select [(ngModel)]='bairro_s' placeholder="Selecione seu bairro">
+        <div  *ngFor="let bairro of betbairros()">
+          <ion-select-option value='{{ bairro.id }}'>{{bairro.nome}}</ion-select-option>
+        </div>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-button (click)='save()' expand="full" color="warning">Salvar</ion-button>
+
+</ion-content> 

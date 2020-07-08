@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "202023637766",
+    "firebase_url": "https://to-nas-compras.firebaseio.com",
+    "project_id": "to-nas-compras",
+    "storage_bucket": "to-nas-compras.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:202023637766:android:f88628edca0aa78d7a4487",
+        "android_client_info": {
+          "package_name": "tonascompras.oressoftware.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "202023637766-h0ajdtskkf7a19ljvouprg3744lk1rk0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxUV3ar5wqIa5Yij3p2RpiV9OpgjRLsrk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "202023637766-h0ajdtskkf7a19ljvouprg3744lk1rk0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

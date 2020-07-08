@@ -1,0 +1,64 @@
+{
+  "_from": "cordova-plugin-ios-disableshaketoedit",
+  "_id": "cordova-plugin-ios-disableshaketoedit@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha1-lRn8bPtPwmvt0kxuPnsuC6nn4pA=",
+  "_location": "/cordova-plugin-ios-disableshaketoedit",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-ios-disableshaketoedit",
+    "name": "cordova-plugin-ios-disableshaketoedit",
+    "escapedName": "cordova-plugin-ios-disableshaketoedit",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-ios-disableshaketoedit/-/cordova-plugin-ios-disableshaketoedit-1.0.0.tgz",
+  "_shasum": "9519fc6cfb4fc26bedd24c6e3e7b2e0ba9e7e290",
+  "_spec": "cordova-plugin-ios-disableshaketoedit",
+  "_where": "/Users/wallacerodrigues/Desktop/DevApps/tonascompras",
+  "author": {
+    "name": "Nicolas Leclerc"
+  },
+  "bugs": {
+    "url": "https://github.com/nleclerc/cordova-plugin-ios-disableshaketoedit/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-ios-disableshaketoedit",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "cordova_name": "cordova-plugin-ios-disableshaketoedit",
+  "deprecated": false,
+  "description": "Sets status bar as hidden in ios cordova project.",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "homepage": "https://github.com/nleclerc/cordova-plugin-ios-disableshaketoedit#readme",
+  "issue": "https://github.com/nleclerc/cordova-plugin-ios-disableshaketoedit/issues",
+  "keywords": [
+    "cordova",
+    "ios",
+    "input",
+    "gesture",
+    "shaketoedit"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-ios-disableshaketoedit",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nleclerc/cordova-plugin-ios-disableshaketoedit.git"
+  },
+  "version": "1.0.0"
+}
